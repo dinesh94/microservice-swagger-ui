@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: microservice-swagger
+server:
+  port: 16101
+  contextPath: /microservice-swagger

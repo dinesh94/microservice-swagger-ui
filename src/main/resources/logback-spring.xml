@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- #******************************************************************************
+# * (C) 2013, Siemens Building Technologies, Inc. 
+# *
+# ********** Siemens Restricted  *******************************************
+# *
+# * @author lwatts
+# * 
+# * Description:
+# * 
+# * Logging configuration
+# * 
+# *****************************************************************************/-->
+
+<configuration>
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+	<encoder>
+      <!--pattern>%d{HH:mm:ss.SSS} - %-5level - %logger{36} - [%file:%line] - %msg%n</pattern-->
+      <pattern>%d{HH:mm:ss.SSS} - %-5level - [%file:%line] - %msg%n</pattern>
+    </encoder>  
+  </appender>
+	
+	  
+  <!--appender name="LOGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>/var/log/symphony/symphony.log</File>
+    <encoder>
+      <pattern>%-5p[%t]: %C{1}.%M (%d) - %m%n</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <maxIndex>9</maxIndex>
+      <FileNamePattern>/var/log/symphony/symphony.log.%i</FileNamePattern>
+    </rollingPolicy>
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <MaxFileSize>1000KB</MaxFileSize>
+    </triggeringPolicy>
+  </appender -->
+  
+  <!-- appender name="SERVICELOGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <File>/var/log/symphony/symphony_service_access.log</File>
+    <encoder>
+      <pattern>%C{1} %d{HH:mm:ss.SSS}: %m%n</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <maxIndex>9</maxIndex>
+      <FileNamePattern>/var/log/symphony/symphony_service_access.log.%i</FileNamePattern>
+    </rollingPolicy>
+    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <MaxFileSize>1000KB</MaxFileSize>
+    </triggeringPolicy>
+  </appender -->
+  
+  <logger name="com.siemens.rcs.dc" additivity="false" level="INFO">
+    <appender-ref ref="CONSOLE"/>
+  </logger>
+  
+  <!-- logger name="com.siemens.rcs.dc.rest.service.aop.profiler" level="INFO">
+    <appender-ref ref="SERVICELOGFILE"/>
+  </logger -->
+  <root level="INFO">
+    <appender-ref ref="CONSOLE"/>
+  </root>
+</configuration>
